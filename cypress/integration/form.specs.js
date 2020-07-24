@@ -22,3 +22,9 @@ describe('Input and submit form', () => {
         cy.get('button.btn').click()
     })
 })
+describe('Check for new Order at home', () => {
+    it('can navigate to home', ()=> {
+        cy.contains('Home').click()
+    })
+
+})
