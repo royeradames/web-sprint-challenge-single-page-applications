@@ -18,8 +18,8 @@ const initialFormValues = {
   size: '',
   pepperoni: false,
   hawaiian: false,
-  Meatlovers: false,
-  SausageKale: false,
+  meatlovers: false,
+  sausageKale: false,
   instructions: '',
 
 }
@@ -93,8 +93,11 @@ const App = () => {
     const newOrder = {
       first_name: formValues.first_name.trim(),
       last_name: formValues.last_name.trim(),
-      size: formValues.email.trim(),
-      toppings: Object.keys(formValues.toppings).filter(hb => formValues.toppings[hb]),
+      size: formValues.email,
+      pepperoni: formValues.pepperoni,
+      hawaiian: formValues.pepperoni,
+      meatlovers: formValues.pepperoni,
+      sausageKale: formValues.pepperoni,
       instructions: formValues.instructions.trim(),
     }
     postNewOrder(newOrder)
