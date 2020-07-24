@@ -8,7 +8,7 @@ export default function Header( props){
         <div className={'header-container'}>
             <h1>Lambda Eats</h1>
             <button onClick={() => history.push('/')}>Home</button>
-            <button onClick={() => history.push('/Form')}>Form</button>
+            <button onClick={() => history.push('/pizza')}>Form</button>
         </div>
     )
 }
