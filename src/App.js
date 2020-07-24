@@ -125,7 +125,7 @@ const App = () => {
           />
         </Route>
         <Route path='/'>
-          <Home />
+              <Home orderInSystem={orderInSystem}/>
         </Route>
       </Switch>
     </>
