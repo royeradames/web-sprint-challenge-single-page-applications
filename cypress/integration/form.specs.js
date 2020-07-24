@@ -11,7 +11,11 @@ describe('Input and submit form', () => {
         cy.get('input[name="first_name"]').type('Royer')
         cy.get('input[name="last_name"]').type('Adames')
         cy.get('input[name="pepperoni"]').click()
-
+        cy.get('input[name="pepperoni"]').click()
     })
-   
+
+    
+    it('submit the form', () => {
+        cy.get('button.btn').click()
+    })
 })
