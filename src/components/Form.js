@@ -37,31 +37,32 @@ export default function Form({ values, inputChange, checkboxChange, submit, disa
             </label>
 
             {/* Drop Down menu */}
-            <label>Sizes
+            
+            <label>Size
                 <select
                     onChange={onInputChange}
-                    value={values.sizes}
-                    name='sizes'
+                    value={values.size}
+                    name='size'
                 >
-                    <optiom disabled value=''>Pick a size</optiom>
-                    <optiom value='small'>Small</optiom>
-                    <optiom value='medium'>Medium</optiom>
-                    <optiom value='large'>Large</optiom>
+                    <option disabled value=''>- Select an option -</option>
+                    <option value='small'>Small</option>
+                    <option value='medium'>Medium</option>
+                    <option value='large'>Large</option>
                 </select>
             </label>
             {/* Checklist */}
             <h4>Toppings</h4>
             <label> Pepperoni
-                <input type='checkbox' name='pepperoni' checked={values.toppings.pepperoni === true} onChange={onCheckboxChange}></input>
+                <input type='checkbox' name='pepperoni' checked={values.pepperoni} onChange={onCheckboxChange}></input>
             </label>
             <label>Hawaiian
-                <input type='checkbox' name='hawaiian' checked={values.toppings.hawaiian === true} onChange={onCheckboxChange}></input>
+                <input type='checkbox' name='hawaiian' checked={values.hawaiian} onChange={onCheckboxChange}></input>
             </label>
             <label>Meatlovers
-                <input type='checkbox' name='meatlovers' checked={values.toppings.meatlovers === true} onChange={onCheckboxChange}></input>
+                <input type='checkbox' name='meatlovers' checked={values.meatlovers} onChange={onCheckboxChange}></input>
             </label>
             <label>SausageKale
-                <input type='checkbox' name='sausageKale' checked={values.toppings.sausageKale === true} onChange={onCheckboxChange}></input>
+                <input type='checkbox' name='sausageKale' checked={values.sausageKale} onChange={onCheckboxChange}></input>
             </label>
 
             {/* special Instruction */}
@@ -77,10 +78,6 @@ export default function Form({ values, inputChange, checkboxChange, submit, disa
                 <div>{errors.first_name}</div>
                 <div>{errors.last_name}</div>
                 <div>{errors.sizes}</div>
-                <div>{errors.toppings.pepperoni}</div>
-                <div>{errors.toppings.hawaiian}</div>
-                <div>{errors.toppings.meatlovers}</div>
-                <div>{errors.toppings.sausageKale}</div>
             </div>
         </form>
     )

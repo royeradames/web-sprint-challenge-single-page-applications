@@ -1,8 +1,7 @@
 import React from 'react'
 import {useHistory} from 'react-router-dom'
 
-export default function Header( props){
-    debugger
+export default function Header( ){
     const history = useHistory()
     return(
         <div className={'header-container'}>

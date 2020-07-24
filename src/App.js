@@ -15,41 +15,45 @@ const initialFormValues = {
   ///// TEXT INPUTS /////
   first_name: '',
   last_name: '',
-  sizes: '',
-  toppings: {
-    pepperoni: false,
-    hawaiian: false,
-    Meatlovers: false,
-    SausageKale: false
-  },
+  size: '',
+  pepperoni: false,
+  hawaiian: false,
+  Meatlovers: false,
+  SausageKale: false,
   instructions: '',
 
 }
 const initialFormErrors = {
   first_name: '',
   last_name: '',
-  sizes: '',
-  toppings: {
-    pepperoni: false,
-    hawaiian: false,
-    meatlovers: false,
-    sausageKale: false
-  },
+  size: '',
+  pepperoni: false,
+  hawaiian: false,
+  meatlovers: false,
+  sausageKale: false,
 }
-const initialUsers = []
+const initialOrders = []
 const initialDisabled = true
 
 const App = () => {
   //states
-  const [orderInSystem, setOrderInSystem] = useState(initialUsers)// array of friend objects
+  const [orderInSystem, setOrderInSystem] = useState(initialOrders)// array of friend objects
   const [formValues, setFormValues] = useState(initialFormValues) // object
   const [formErrors, setFormErrors] = useState(initialFormErrors) // object
   const [disabled, setDisabled] = useState(initialDisabled)       // boolean
 
-  const history = useHistory()
-
-
   //helper functions
+  const postNewOrder = newFriend => {
+    axios.post('https://reqres.in/api/users', newFriend)
+      .then(res => {
+        debugger
+        setOrderInSystem([res.data, ...orderInSystem])
+        setFormValues(initialFormValues)
+      })
+      .catch(err => {
+        debugger
+      })
+  }
   const inputChange = (name, value) => {
     yup
       //match name key on the formSchema
@@ -63,7 +67,7 @@ const App = () => {
         })
       })
       /* if the validation is unsuccessful, we can set the error message to the message returned from yup (that we created in our schema) */
-      .catch( err => {
+      .catch(err => {
         setFormErrors({
           ...formErrors, [name]: err.errors[0],
         })
@@ -71,15 +75,18 @@ const App = () => {
 
     setFormValues({
       ...formValues,
-      [name]:value //not an array. [ ] are acting like `${ }`
+      [name]: value //not an array. [ ] are acting like `${ }`
     })
   }
   const checkboxChange = (name, isChecked) => {
     //add checkbox input on formValues state
+    debugger
+    console.log(formValues)
     setFormValues({
       ...formValues,
-      [name]:isChecked
+      [name]: isChecked
     })
+    console.log(formValues)
   }
   const submit = () => {
     //prepare new user data how the system accepts it
@@ -87,11 +94,18 @@ const App = () => {
       first_name: formValues.first_name.trim(),
       last_name: formValues.last_name.trim(),
       sizes: formValues.email.trim(),
-      toppings: formValues.toppings,
+      toppings: Object.keys(formValues.toppings).filter(hb => formValues.toppings[hb]),
       instructions: formValues.instructions.trim(),
     }
-    postNewUser(newOrder)
+    postNewOrder(newOrder)
   }
+
+  //if the form is valid let them submit
+  useEffect(() => {
+    formSchema.isValid(formValues).then(valid => {
+      setDisabled(!valid)
+    })
+  }, [formValues])
   return (
     <>
       <Header />
