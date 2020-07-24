@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function Home({ orderInSystem }) {
     // {id, first_name, last_name, pepperoni, hawaiian, meatlovers, sausageKale}
-    debugger
     return (
         <div className='orders-container'>
             <h1>Orders</h1>

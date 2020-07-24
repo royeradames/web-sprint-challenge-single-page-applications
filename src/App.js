@@ -43,10 +43,11 @@ const App = () => {
   const [disabled, setDisabled] = useState(initialDisabled)       // boolean
 
   //helper functions
-  const postNewOrder = newFriend => {
-    axios.post('https://reqres.in/api/users', newFriend)
+  const postNewOrder = newOrder => {
+    debugger
+    axios.post('https://reqres.in/api/users', newOrder)
       .then(res => {
-         
+        debugger
         setOrderInSystem([res.data, ...orderInSystem])
         setFormValues(initialFormValues)
       })
@@ -77,10 +78,11 @@ const App = () => {
       ...formValues,
       [name]: value //not an array. [ ] are acting like `${ }`
     })
+    debugger
   }
   const checkboxChange = (name, isChecked) => {
     //add checkbox input on formValues state
-     
+     debugger
     console.log(formValues)
     setFormValues({
       ...formValues,
@@ -95,11 +97,12 @@ const App = () => {
       last_name: formValues.last_name.trim(),
       size: formValues.email,
       pepperoni: formValues.pepperoni,
-      hawaiian: formValues.pepperoni,
-      meatlovers: formValues.pepperoni,
-      sausageKale: formValues.pepperoni,
+      hawaiian: formValues.hawaiian,
+      meatlovers: formValues.meatlovers,
+      sausageKale: formValues.sausageKale,
       instructions: formValues.instructions.trim(),
     }
+    debugger
     postNewOrder(newOrder)
   }
 

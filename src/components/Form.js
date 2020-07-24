@@ -53,16 +53,16 @@ export default function Form({ values, inputChange, checkboxChange, submit, disa
             {/* Checklist */}
             <h4>Toppings</h4>
             <label> Pepperoni
-                <input type='checkbox' name='pepperoni' checked={values.pepperoni} onChange={onCheckboxChange}></input>
+                <input type='checkbox' name='pepperoni' checked={values.pepperoni === true} onChange={onCheckboxChange}></input>
             </label>
             <label>Hawaiian
-                <input type='checkbox' name='hawaiian' checked={values.hawaiian} onChange={onCheckboxChange}></input>
+                <input type='checkbox' name='hawaiian' checked={values.hawaiian === true} onChange={onCheckboxChange}></input>
             </label>
             <label>Meatlovers
-                <input type='checkbox' name='meatlovers' checked={values.meatlovers} onChange={onCheckboxChange}></input>
+                <input type='checkbox' name='meatlovers' checked={values.meatlovers === true} onChange={onCheckboxChange}></input>
             </label>
             <label>SausageKale
-                <input type='checkbox' name='sausageKale' checked={values.sausageKale} onChange={onCheckboxChange}></input>
+                <input type='checkbox' name='sausageKale' checked={values.sausageKale === true} onChange={onCheckboxChange}></input>
             </label>
 
             {/* special Instruction */}
