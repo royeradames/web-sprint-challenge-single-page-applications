@@ -83,14 +83,14 @@ const App = () => {
   }
   const submit = () => {
     //prepare new user data how the system accepts it
-    const newUser = {
+    const newOrder = {
       first_name: formValues.first_name.trim(),
       last_name: formValues.last_name.trim(),
-      email: formValues.email.trim(),
-      password: formValues.password.trim(),
-      role: formValues.role,
-      termsOfService: formValues.termsOfService,
+      sizes: formValues.email.trim(),
+      toppings: formValues.toppings,
+      instructions: formValues.instructions.trim(),
     }
+    postNewUser(newOrder)
   }
   return (
     <>

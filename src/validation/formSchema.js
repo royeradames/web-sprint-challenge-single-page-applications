@@ -1,10 +1,9 @@
 import * as yup from 'yup'
 
 const formSchema = yup.object().shape({
-  email: yup
+  sizes: yup
     .string()
-    .email("Email must be valid")
-    .required("Email is required"),
+    .required("Pick a size"),
   first_name: yup
     .string()
     .min(3, "First Name must be at least 3 characters")
@@ -13,17 +12,11 @@ const formSchema = yup.object().shape({
     .string()
     .min(3, "Last Name must be at least 3 characters")
     .required("Last name is Required"),
-  password: yup
-    .string()
-    .min(3, "Password must be at least 3 characters")
-    .required("Password is required"),
-  role: yup
-    .string(),
-  termsOfService: yup
+  toppings: yup
     .boolean()
-    .oneOf([true], 'You have to accept Terms of Service to continue.')
-    .required("Terms Of Service is required"),
-
+    .required("Select a topping"),
+  instructions: yup
+    .string(),
 })
 
 export default formSchema
