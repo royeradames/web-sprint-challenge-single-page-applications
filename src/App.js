@@ -46,12 +46,12 @@ const App = () => {
   const postNewOrder = newFriend => {
     axios.post('https://reqres.in/api/users', newFriend)
       .then(res => {
-        debugger
+         
         setOrderInSystem([res.data, ...orderInSystem])
         setFormValues(initialFormValues)
       })
       .catch(err => {
-        debugger
+         
       })
   }
   const inputChange = (name, value) => {
@@ -80,7 +80,7 @@ const App = () => {
   }
   const checkboxChange = (name, isChecked) => {
     //add checkbox input on formValues state
-    debugger
+     
     console.log(formValues)
     setFormValues({
       ...formValues,

@@ -2,8 +2,7 @@ import * as yup from 'yup'
 
 const formSchema = yup.object().shape({
   size: yup
-    .string()
-    .required("Pick a size"),
+    .string(),
   first_name: yup
     .string()
     .min(3, "First Name must be at least 3 characters")

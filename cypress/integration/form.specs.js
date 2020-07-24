@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 describe('Input and submit form', () => {
     it('can navigate to the site', ()=> {
-        cy.visit('http://localhost:3000')
+        cy.visit('http://localhost:3000/pizza')
         cy.url().should('include', 'localhost')
     })
     it('submit button is disabled', () => {
@@ -10,7 +10,8 @@ describe('Input and submit form', () => {
     it('Populate all fields', () => {
         cy.get('input[name="first_name"]').type('Royer')
         cy.get('input[name="last_name"]').type('Adames')
-        cy.get('input[name="size"]').click()
+        cy.get('input[name="pepperoni"]').click()
+
     })
    
 })
