@@ -11,10 +11,13 @@ describe('Input and submit form', () => {
         cy.get('input[name="first_name"]').type('Royer')
         cy.get('input[name="last_name"]').type('Adames')
         cy.get('input[name="pepperoni"]').click()
-        cy.get('input[name="pepperoni"]').click()
+    })
+    it('Check that the form is has all needed fields', () => {
+        cy.get('input[name="first_name"]').should('have.value', 'Royer')
+        cy.get('input[name="last_name"]').should('have.value', 'Adames')
+        cy.get('input[name="pepperoni"]').should('be.checked')
     })
 
-    
     it('submit the form', () => {
         cy.get('button.btn').click()
     })
