@@ -93,7 +93,7 @@ const App = () => {
     const newOrder = {
       first_name: formValues.first_name.trim(),
       last_name: formValues.last_name.trim(),
-      sizes: formValues.email.trim(),
+      size: formValues.email.trim(),
       toppings: Object.keys(formValues.toppings).filter(hb => formValues.toppings[hb]),
       instructions: formValues.instructions.trim(),
     }
